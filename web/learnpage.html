@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zzy's blog</title>
+    <style>
+        .gray-box {
+            background-color: lightgray;
+            padding: 20px;
+            height: 2000;
+        } 
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+  <center>
+    <p></p>
+    
+
+
+  </center>
+</body>
+</html>
+<script>
+    let currentPage = 1;
+  
+    function switchPage() {
+      if (currentPage === 1) {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+        currentPage = 2;
+      } else {
+        document.getElementById("page1").style.display = "block";
+        document.getElementById("page2").style.display = "none";
+        currentPage = 1;
+      }
+    }
+</script>
