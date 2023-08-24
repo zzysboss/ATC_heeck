@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zzy's blog</title>
+    <style id="page-styles">
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+        }
+        .header img {
+            border-radius: 50%;
+        }
+        .header h2 {
+            margin-top: 10px;
+        }
+        .section-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+        .section {
+            flex-basis: calc(30% - 40px);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+        }
+        .section h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+     <style>
+        .dropdown {
+            flex-basis: calc(30% - 40px);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            flex-basis: calc(30% - 40px);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <img src="logo.jpg" alt="Your Image" width="150" height="150">
+            <h2>zzy's blog</h2>
+        </div>
+
+        <p>hello<br>I'm zzy.<br>I hope this can help you!<br></p>
+
+        <div class="section-container">
+            <div class="section">
+                <h3><a href="sourcepage.html">Source Download</a></h3>
+                
+            </div>
+
+            <div class="section">
+                <h3><a href="learnpage.html">Study Path</a></h3>
+                
+            </div>
+            <div class="dropdown">
+                <a><strong>Learning Blog</strong></a>
+                <div class="dropdown-content">
+                    <a href="frontend.html">前端开发</a><br>
+                    <a href="backend.html">后端开发</a><br>
+                    <a href="web3.html">web3及区块链</a><br>
+                </div>
+            </div>
+        </div>
+
+        <button id="theme-button">Switch Theme</button>
+
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function switchPage() {
+          if (currentPage === 1) {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
+            currentPage = 2;
+          } else {
+            document.getElementById("page1").style.display = "block";
+            document.getElementById("page2").style.display = "none";
+            currentPage = 1;
+          }
+        }
+
+        const themes = [
+          
+          `body { background-color: lightblue; }`,
+          `body { background-color: lightgreen; }`,
+          `body { background-color: gray; }`
+        ];
+        let currentTheme = 0;
+
+        document.getElementById("theme-button").addEventListener("click", () => {
+          currentTheme = (currentTheme + 1) % themes.length;
+          document.getElementById("page-styles").textContent += themes[currentTheme];
+        });
+    </script>
+
+</body>
+</html>
